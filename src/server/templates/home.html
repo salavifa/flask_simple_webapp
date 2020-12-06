@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+{% block body %}
+<div>
+    {% if message %}
+{{ message }}
+    {% endif %}
+</div>
+<div>
+<form action="{{ url_for('home') }}" method="POST" >
+    <label for="actions">select an action:</label>
+        <select name="actions" id="action">
+            {% for drop_down_item in drop_downs %}
+                <option value={{ drop_down_item }}>{{ drop_down_item }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Go"  >
+    <div>
+    </div>
+</form>
+</div>
+{% endblock %}
